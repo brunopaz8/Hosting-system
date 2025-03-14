@@ -26,8 +26,8 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User create( User userToCreate){
-        if (userRepository.existsByUsercpf(userToCreate.getUser().getCpf())) {
-            throw new IllegalArgumentException("This cpf is already in use");
+        if (userRepository.existsBycpf(userToCreate.getCpf())) {
+            throw new IllegalArgumentException("This CPF is already registered");
         }
         return userRepository.save(userToCreate);
     }

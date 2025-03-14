@@ -7,5 +7,7 @@ import dio.travel_system.model.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
+
+    boolean existsBycpf(String cpf);
     
 }
