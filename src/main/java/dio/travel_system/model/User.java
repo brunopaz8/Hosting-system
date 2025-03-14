@@ -16,7 +16,7 @@ public class User {
     @Column(nullable = false, unique = true)
     private String cpf;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Address> addresses;
 
     public User() {}
