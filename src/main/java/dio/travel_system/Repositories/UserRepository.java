@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import dio.travel_system.model.User;
 
 @Repository
-public interface UserRepositories extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
     
 }
