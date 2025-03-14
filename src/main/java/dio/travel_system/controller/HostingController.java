@@ -1,6 +1,7 @@
 package dio.travel_system.controller;
 
 import java.net.URI;
+import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,9 +26,14 @@ public class HostingController {
         this.hostingService = hostingService;
     }
 
-    @GetMapping
+    @GetMapping("/{id}")
     public ResponseEntity<Hosting> findById(@PathVariable long id) {
         return ResponseEntity.ok(hostingService.findbyId(id));
+    }
+
+    @GetMapping("/{city}")
+    public List<Hosting> getHostingsByCity(@PathVariable String city) {
+        return hostingService.findByCity(city);
     }
 
     @PostMapping
@@ -39,4 +45,6 @@ public class HostingController {
                 .toUri();
         return ResponseEntity.created(location).body(hostingCreated);
     }
+
+    
 }

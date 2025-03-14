@@ -1,12 +1,15 @@
 package dio.travel_system.Service;
 
+import java.util.List;
+
 import dio.travel_system.model.Hosting;
 
 public interface HostingService {
 
     Hosting findbyId(long id);
 
-    Hosting create(Hosting hostingToCreate);
+    List<Hosting> findByCity(String city);
 
+    Hosting create(Hosting hostingToCreate);
 
 }

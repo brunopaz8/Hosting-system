@@ -15,10 +15,10 @@ public class Hosting {
     private User user;
 
     @Column(nullable = false)
-    private String cidade;
+    private String city;
 
     @Column(nullable = false)
-    private boolean disponibilidade;
+    private boolean available;
     
     public Hosting() {}
 
@@ -38,19 +38,19 @@ public class Hosting {
         this.user = user;
     }
 
-    public String getCidade() {
-        return cidade;
+    public String getCity() {
+        return city;
     }
 
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public boolean isDisponibilidade() {
-        return disponibilidade;
+    public boolean isavailable() {
+        return available;
     }
 
-    public void setDisponibilidade(boolean disponibilidade) {
-        this.disponibilidade = disponibilidade;
+    public void setavailable(boolean available) {
+        this.available = available;
     }
 }
