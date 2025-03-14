@@ -2,7 +2,7 @@
 ```mermaid
 classDiagram
     class User {
-        +int id
+        +long id
         +String name
         +String cpf
         +Address[] endereco
@@ -15,8 +15,8 @@ classDiagram
     }
 
     class Hosting {
-        +int id
-        +int id_user
+        +long id
+        +long id_user
         +String cidade
         +boolean disponibilidade
     }
