@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 public class Hosting {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     @ManyToOne
     @JoinColumn(name = "id_user", referencedColumnName = "id", nullable = false)
@@ -22,6 +22,21 @@ public class Hosting {
     
     public Hosting() {}
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+    
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public String getCidade() {
         return cidade;
