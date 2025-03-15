@@ -1,10 +1,10 @@
-package dio.travel_system.Service.impl;
+package dio.travel_system.service.impl;
 
 import org.springframework.stereotype.Service;
 
-import dio.travel_system.Service.HostingService;
-import dio.travel_system.Repositories.HostingRepository;
 import dio.travel_system.model.Hosting;
+import dio.travel_system.repositories.HostingRepository;
+import dio.travel_system.service.HostingService;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -24,7 +24,7 @@ public class HostingServiceIml implements HostingService{
    }
 
    @Override
-   public List<Hosting> findByCity(String city) {
+   public List<Hosting> findbyCity(String city) {
     return hostingRepository.findByCity(city);
    }
 

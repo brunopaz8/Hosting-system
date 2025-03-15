@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import dio.travel_system.Service.HostingService;
+import dio.travel_system.handler.ResourceNotFoundException;
 import dio.travel_system.model.Hosting;
+import dio.travel_system.service.HostingService;
+import jakarta.validation.Valid;
 
 
 @RestController
@@ -28,16 +30,24 @@ public class HostingController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Hosting> findById(@PathVariable long id) {
-        return ResponseEntity.ok(hostingService.findbyId(id));
+        Hosting hosting = hostingService.findbyId(id);
+        if (hosting == null) {
+             throw new ResourceNotFoundException("User with ID " + id + " not found.");
+        }
+        return ResponseEntity.ok(hosting);
     }
 
     @GetMapping("/{city}")
-    public List<Hosting> getHostingsByCity(@PathVariable String city) {
-        return hostingService.findByCity(city);
+    public ResponseEntity<List<Hosting>> getByCity(@PathVariable String city) {
+        List<Hosting> hosting = hostingService.findbyCity(city);
+        if (hosting.isEmpty()){
+            throw new ResourceNotFoundException("No hosting found in " + city);
+        }
+        return ResponseEntity.ok(hosting);
     }
 
-    @PostMapping
-    public ResponseEntity<Hosting> create(@RequestBody Hosting hostingToCreate) {
+    @PostMapping("/{id}")
+    public ResponseEntity<Hosting> create(@Valid @RequestBody Hosting hostingToCreate) {
         var hostingCreated = hostingService.create(hostingToCreate);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")

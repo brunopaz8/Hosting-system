@@ -1,10 +1,11 @@
-package dio.travel_system.Service.impl;
+package dio.travel_system.service.impl;
 
 import org.springframework.stereotype.Service;
 
-import dio.travel_system.Repositories.UserRepository;
-import dio.travel_system.Service.UserService;
 import dio.travel_system.model.User;
+import dio.travel_system.repositories.UserRepository;
+import dio.travel_system.service.UserService;
+
 import java.util.NoSuchElementException;
 
 

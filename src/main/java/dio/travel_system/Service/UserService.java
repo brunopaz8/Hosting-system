@@ -1,4 +1,4 @@
-package dio.travel_system.Service;
+package dio.travel_system.service;
 
 import dio.travel_system.model.User;
 

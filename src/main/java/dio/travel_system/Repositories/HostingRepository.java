@@ -1,4 +1,4 @@
-package dio.travel_system.Repositories;
+package dio.travel_system.repositories;
 
 
 import java.util.List;
@@ -12,6 +12,5 @@ import dio.travel_system.model.Hosting;
 public interface HostingRepository extends JpaRepository<Hosting, Long> {
     
     List<Hosting> findByCity(String city);
-
-    
+   
 }

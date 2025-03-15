@@ -1,4 +1,4 @@
-package dio.travel_system.Repositories;
+package dio.travel_system.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

@@ -1,7 +1,9 @@
 package dio.travel_system.model;
 
-import java.util.List;
+
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+
 
 @Entity
 @Table(name = "users_tab")
@@ -10,14 +12,25 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
      
+    @NotBlank(message = "Name cannot be blank")
     @Column(nullable = false, length = 50)
     private String name;
-
+    
+    @NotBlank(message = "CPF cannot be blank")
     @Column(nullable = false, unique = true)
     private String cpf;
+    
+    @NotBlank(message = "Street cannot be blank")
+    @Column (nullable = false, length = 25)
+    private String street;
+    
+    @NotBlank(message = "Number cannot be blank")
+    @Column(nullable = false, length = 20)
+    private String number;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Address> addresses;
+    @NotBlank(message = "City cannot be blank")
+    @Column(nullable = false, length = 50)
+    private String city;
 
     public User() {}
 
@@ -44,12 +57,30 @@ public class User {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-
-    public List<Address> getAddresses() {
-        return addresses;
+    
+    public String getStreet() {
+        return street;
     }
 
-    public void setAddresses(List<Address> addresses) {
-        this.addresses = addresses;
+    public void setStreet(String street) {
+        this.street = street;
     }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    
 }

@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import dio.travel_system.Service.UserService;
+import dio.travel_system.handler.ResourceNotFoundException;
 import dio.travel_system.model.User;
+import dio.travel_system.service.UserService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/users")
@@ -27,11 +29,15 @@ public class UserController {
 
     @GetMapping("/{id}")
     public ResponseEntity<User> findById(@PathVariable long id) {
-        return ResponseEntity.ok(userService.findbyId(id));
+        User user = userService.findbyId(id);
+        if (user == null) {
+            throw new ResourceNotFoundException("User with ID " + id + " not found.");
+        }
+        return ResponseEntity.ok(user);
     }
 
-    @PostMapping
-    public ResponseEntity<User> create(@RequestBody User userToCreate) {
+    @PostMapping("/{id}")
+    public ResponseEntity<User> create(@Valid @RequestBody User userToCreate) {
         var userCreated = userService.create(userToCreate);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")
