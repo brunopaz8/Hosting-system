@@ -24,8 +24,12 @@ public class HostingServiceIml implements HostingService{
    }
 
    @Override
-   public List<Hosting> findbyCity(String city) {
-    return hostingRepository.findByCity(city);
+   public List<Hosting> findAll() {
+    try {
+        return hostingRepository.findAll();
+    } catch (Exception e) {
+        throw new RuntimeException("error when trying to search for hosting", e);
+    }
    }
 
     @Override

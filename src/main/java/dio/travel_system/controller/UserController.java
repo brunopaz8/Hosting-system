@@ -2,6 +2,7 @@ package dio.travel_system.controller;
 
 
 import java.net.URI;
+import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import dio.travel_system.handler.ResourceNotFoundException;
+
 import dio.travel_system.model.User;
 import dio.travel_system.service.UserService;
 import jakarta.validation.Valid;
@@ -27,16 +28,19 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<User> findById(@PathVariable long id) {
-        User user = userService.findbyId(id);
-        if (user == null) {
-            throw new ResourceNotFoundException("User with ID " + id + " not found.");
-        }
-        return ResponseEntity.ok(user);
+    @GetMapping
+    public ResponseEntity<List<User>> findAll() {
+        List<User> userList = userService.findAll();
+        return ResponseEntity.ok(userList);
     }
 
-    @PostMapping("/{id}")
+    @GetMapping("/{id}")
+    public ResponseEntity<User> findById(@PathVariable Long id) {
+       var user = userService.findbyId(id);
+       return ResponseEntity.ok(user);
+    }
+
+    @PostMapping
     public ResponseEntity<User> create(@Valid @RequestBody User userToCreate) {
         var userCreated = userService.create(userToCreate);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
