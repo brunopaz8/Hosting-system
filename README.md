@@ -43,7 +43,7 @@ erDiagram
 
 Após iniciar o projeto, o servidor ficará escutando na root `http://localhost:8080/`.
 
-#### 🔹 Gerenciamento do User
+#### 🟣 Gerenciamento do User
 
 | Method | Parameters | Action                              |
 | ------ | ---------- | ----------------------------------- |
@@ -53,7 +53,7 @@ Após iniciar o projeto, o servidor ficará escutando na root `http://localhost:
 | GET    | /{id}      | Retorna o User específico do id     |
 | DELETE | /{id}      | Deleta o User do id selecionado     |
 
-#### 🔹 Criando um User
+#### 🟣 Criando um User
 
 - **Body (JSON):**
   ```json
@@ -68,7 +68,7 @@ Após iniciar o projeto, o servidor ficará escutando na root `http://localhost:
 
 ### 🔍 Fazendo Requisições (/hosting)
 
-#### 🔹 Gerenciamento do Hosting
+#### 🟣 Gerenciamento do Hosting
 
 | Method | Parameters | Action                                 |
 | ------ | ---------- | -------------------------------------- |
@@ -78,7 +78,7 @@ Após iniciar o projeto, o servidor ficará escutando na root `http://localhost:
 | GET    | /{id}      | Retorna o Hosting específico do id     |
 | DELETE | /{id}      | Deleta o Hosting do id selecionado     |
 
-#### 🔹 Criando um Hosting
+#### 🟣 Criando um Hosting
 
 - **Body (JSON):**
   ```json
@@ -99,7 +99,7 @@ Após iniciar o projeto, o servidor ficará escutando na root `http://localhost:
 4. O servidor estará disponível em: `http://localhost:8080/`
 5. O banco de dados H2 pode ser acessado via console em: `http://localhost:8080/h2-console`
 
-### 🔹 Configuração do Banco de Dados H2
+### 💻 Configuração do Banco de Dados H2
 
 - **URL JDBC:** `jdbc:h2:mem:testdb`
 - **Driver:** `org.h2.Driver`
@@ -108,7 +108,7 @@ Após iniciar o projeto, o servidor ficará escutando na root `http://localhost:
 - **Dialect:** `org.hibernate.dialect.H2Dialect`
 - **Modo Console:** Habilitado (`/h2-console`)
 
-Para acessar o banco via console H2:
+◼️Para acessar o banco via console H2:
 1. Acesse `http://localhost:8080/h2-console`
 2. No campo *JDBC URL*, insira `jdbc:h2:mem:testdb`
 3. Usuário: `sa`, deixe o campo de senha em branco
