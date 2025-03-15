@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -47,6 +48,19 @@ public class HostingController {
                 .buildAndExpand(hostingCreated.getId())
                 .toUri();
         return ResponseEntity.created(location).body(hostingCreated);
+    }
+
+    @PostMapping("/{id}")
+    public ResponseEntity<Hosting> update(@PathVariable long id, @Valid @RequestBody Hosting hostingToUpdate) {
+        hostingToUpdate.setId(id);
+        var hostingUpdated = hostingService.update(hostingToUpdate);
+        return ResponseEntity.ok(hostingUpdated);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Hosting> delete(@PathVariable long id) {
+        var hostingDeleted = hostingService.Delete(id);
+        return ResponseEntity.ok(hostingDeleted);
     }
 
     

@@ -37,4 +37,16 @@ public class HostingServiceIml implements HostingService{
         return hostingRepository.save(hostingToCreate);
     }
 
+    @Override
+    public Hosting update(Hosting hostingToUpdate){
+        return hostingRepository.save(hostingToUpdate);
+    }
+    
+    @Override
+    public Hosting Delete(long id) {
+        Hosting hosting = findbyId(id);
+        hostingRepository.delete(hosting);
+        return hosting;
+    }
+
 }

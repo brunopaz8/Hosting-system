@@ -13,4 +13,8 @@ public interface HostingService {
 
     Hosting create(Hosting hostingToCreate);
 
+    Hosting update(Hosting hostingToUpdate);
+
+    Hosting Delete(long id);
+
 }

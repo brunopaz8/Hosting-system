@@ -5,6 +5,7 @@ import java.net.URI;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -49,6 +50,21 @@ public class UserController {
                 .toUri();
         return ResponseEntity.created(location).body(userCreated);
     }
+
+    @PostMapping("/{id}")
+    public ResponseEntity<User> update(@PathVariable Long id, @Valid @RequestBody User userToUpdate) {
+        userToUpdate.setId(id);
+        var userUpdated = userService.update(userToUpdate);
+        return ResponseEntity.ok(userUpdated);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<User> delete(@PathVariable Long id) {
+        var userDeleted = userService.Delete(id);
+        return ResponseEntity.ok(userDeleted);
+    }
+
+
 }
 
 
