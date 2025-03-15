@@ -13,7 +13,7 @@ public class Hosting {
     private long id;
 
     @ManyToOne
-    @JoinColumn(name = "id_user", referencedColumnName = "id")
+    @JoinColumn(name = "id_user", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_user_id"))
     private User user;
 
     @NotBlank(message = "Street cannot be blank")
