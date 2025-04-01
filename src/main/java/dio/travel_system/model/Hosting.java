@@ -1,9 +1,6 @@
 package dio.travel_system.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-
-
 
 @Entity
 @Table(name = "hosting_tab")
@@ -16,15 +13,12 @@ public class Hosting {
     @JoinColumn(name = "id_user", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_user_id"))
     private User user;
 
-    @NotBlank(message = "Street cannot be blank")
-    @Column (nullable = false, length = 25)
+    @Column(nullable = false, length = 25)
     private String street;
     
-    @NotBlank(message = "City cannot be blank")
     @Column(nullable = false, length = 25)
     private String city;
 
-    @NotBlank(message = "State cannot be blank")
     @Column(nullable = false, length = 25)
     private String state;
     
@@ -32,6 +26,7 @@ public class Hosting {
     private boolean available = false;
     
     public Hosting() {}
+
 
     public long getId() {
         return id;
@@ -65,18 +60,19 @@ public class Hosting {
         this.city = city;
     }
 
-    public boolean isavailable() {
-        return available;
-    }
-
-    public void setavailable(boolean available) {
-        this.available = available;
-    }
     public String getState() {
         return state;
     }
     
     public void setState(String state) {
         this.state = state;
+    }
+
+    public boolean isAvailable() {  
+        return available;
+    }
+
+    public void setAvailable(boolean available) {  
+        this.available = available;
     }
 }

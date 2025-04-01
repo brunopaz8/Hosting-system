@@ -1,8 +1,6 @@
 package dio.travel_system.model;
 
-
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 
 
 @Entity
@@ -12,23 +10,18 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
      
-    @NotBlank(message = "Name cannot be blank")
     @Column(nullable = false, length = 50)
     private String name;
     
-    @NotBlank(message = "CPF cannot be blank")
     @Column(nullable = false, unique = true)
     private String cpf;
     
-    @NotBlank(message = "Street cannot be blank")
     @Column (nullable = false, length = 25)
     private String street;
     
-    @NotBlank(message = "Number cannot be blank")
     @Column(nullable = false, length = 20)
     private String number;
 
-    @NotBlank(message = "City cannot be blank")
     @Column(nullable = false, length = 50)
     private String city;
 
