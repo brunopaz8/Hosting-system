@@ -28,6 +28,7 @@ public class HostingServiceIml implements HostingService{
    @Override
    public List<Hosting> findAll() {
        List<Hosting> hostings = hostingRepository.findAll();
+       
        if (hostings.isEmpty()) {
            throw new NoSuchElementException("No Hosts Found");
        }
@@ -48,7 +49,6 @@ public class HostingServiceIml implements HostingService{
        }
        return hostingRepository.save(hostingToCreate);
    }
-   
 
     @Override
     public Hosting update(Hosting hostingToUpdate){
@@ -58,6 +58,7 @@ public class HostingServiceIml implements HostingService{
     @Override
     public Hosting Delete(long id) {
         Hosting hosting = findbyId(id);
+        
         if(hosting == null){
             throw new NoSuchElementException("Host With Id " + id + " Not Found");
         }

@@ -11,8 +11,6 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 
-
-
 @Service
 public class UserServiceImpl implements UserService{
 
@@ -25,7 +23,6 @@ public class UserServiceImpl implements UserService{
     @Override
     public User findbyId(Long id){
         return userRepository.findById(id).orElseThrow(() -> new NoSuchElementException("User With Id " + id + " Not Found"));
-
     }
 
     @Override
