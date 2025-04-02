@@ -36,20 +36,19 @@ public class HostingServiceIml implements HostingService{
 
    @Override
    public Hosting create(Hosting hostingToCreate) {
-       if (hostingToCreate.getUser() == null) {
-           throw new InvalidException("O usuário da hospedagem não pode ser nulo.");
-       }
+       
        if (hostingToCreate.getStreet() == null || hostingToCreate.getStreet().trim().isEmpty()) {
-           throw new InvalidException("O campo 'street' é obrigatório.");
+           throw new InvalidException("The 'street' field is required.");
        }
        if (hostingToCreate.getCity() == null || hostingToCreate.getCity().trim().isEmpty()) {
-           throw new InvalidException("O campo 'city' é obrigatório.");
+           throw new InvalidException("The 'city' field is required.");
        }
        if (hostingToCreate.getState() == null || hostingToCreate.getState().trim().isEmpty()) {
-           throw new InvalidException("O campo 'state' é obrigatório.");
+           throw new InvalidException("The 'state' field is required.");
        }
        return hostingRepository.save(hostingToCreate);
    }
+   
 
     @Override
     public Hosting update(Hosting hostingToUpdate){
@@ -59,6 +58,9 @@ public class HostingServiceIml implements HostingService{
     @Override
     public Hosting Delete(long id) {
         Hosting hosting = findbyId(id);
+        if(hosting == null){
+            throw new NoSuchElementException("Host With Id " + id + " Not Found");
+        }
         hostingRepository.delete(hosting);
         return hosting;
     }

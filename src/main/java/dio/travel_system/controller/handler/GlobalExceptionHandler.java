@@ -41,8 +41,8 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(InvalidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ResponseEntity<Object> handleInvalidHostingException(InvalidException ex) {
-        return buildErrorResponse(HttpStatus.BAD_REQUEST, "erro devalidacao", ex.getMessage());
+    public ResponseEntity<Object> handleInvalidException(InvalidException ex) {
+        return buildErrorResponse(HttpStatus.BAD_REQUEST, "Bad Request", ex.getMessage());
     }
 
    
