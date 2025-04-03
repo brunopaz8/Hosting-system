@@ -46,6 +46,9 @@ public class UserServiceImpl implements UserService{
         if (userRepository.existsBycpf(userToCreate.getCpf())) {
             throw new InvalidException("This CPF is already registered");
         }
+        if(userToCreate.getPhoneNumber() == null || userToCreate.getPhoneNumber().trim().isEmpty()){
+            throw new InvalidException("The 'Phone Number' Field Is Required");
+        }     
         if (userToCreate.getStreet() == null || userToCreate.getStreet().trim().isEmpty()) {
             throw new InvalidException("The 'STREET' Field Is Required");
         }

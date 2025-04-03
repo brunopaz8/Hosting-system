@@ -15,13 +15,16 @@ public class User {
     
     @Column(nullable = false, unique = true)
     private String cpf;
+
+    @Column(nullable = false, length = 30)
+    private String phoneNumeber;
     
     @Column (nullable = false, length = 25)
     private String street;
     
     @Column(nullable = false, length = 20)
     private String number;
-
+    
     @Column(nullable = false, length = 50)
     private String city;
 
@@ -49,6 +52,14 @@ public class User {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumeber;
+    }
+
+    public void setPhoneNumber(String phoneNumber){
+        this.phoneNumeber = phoneNumber;
     }
     
     public String getStreet() {

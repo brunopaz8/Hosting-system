@@ -37,7 +37,13 @@ public class HostingServiceIml implements HostingService{
 
    @Override
    public Hosting create(Hosting hostingToCreate) {
-       
+
+       if (hostingToCreate.getPrice() <= 0) {
+            throw new InvalidException("The 'price' field must be greater than 0.");
+        }
+       if (hostingToCreate.getDescription() == null || hostingToCreate.getDescription().trim().isEmpty()) {
+           throw new InvalidException("The 'description' field is required.");
+       }
        if (hostingToCreate.getStreet() == null || hostingToCreate.getStreet().trim().isEmpty()) {
            throw new InvalidException("The 'street' field is required.");
        }
@@ -46,6 +52,9 @@ public class HostingServiceIml implements HostingService{
        }
        if (hostingToCreate.getState() == null || hostingToCreate.getState().trim().isEmpty()) {
            throw new InvalidException("The 'state' field is required.");
+       }
+       if (hostingToCreate.getCountry() == null || hostingToCreate.getCountry().trim().isEmpty()) {
+           throw new InvalidException("The 'country' field is required.");
        }
        return hostingRepository.save(hostingToCreate);
    }

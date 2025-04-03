@@ -14,6 +14,12 @@ public class Hosting {
     private User user;
 
     @Column(nullable = false, length = 25)
+    private double price;
+
+    @Column(nullable = false, length = 60)
+    private String description; 
+
+    @Column(nullable = false, length = 25)
     private String street;
     
     @Column(nullable = false, length = 25)
@@ -21,12 +27,14 @@ public class Hosting {
 
     @Column(nullable = false, length = 25)
     private String state;
+
+    @Column(nullable = false, length = 25)
+    private String country;
     
     @Column(nullable = false)
     private boolean available = false;
     
     public Hosting() {}
-
 
     public long getId() {
         return id;
@@ -38,6 +46,22 @@ public class Hosting {
 
     public User getUser() {
         return user;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public String getDescription() { 
+        return description;
+    }
+
+    public void setDescription( String description){
+        this.description = description;
     }
     
     public void setUser(User user) {
@@ -68,6 +92,14 @@ public class Hosting {
         this.state = state;
     }
 
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+ 
     public boolean isAvailable() {  
         return available;
     }
