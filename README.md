@@ -1,8 +1,8 @@
 # 📚 API RESTful Hosting system com Spring Boot 🍃
 
-Bem-vindo ao projeto! Esta API permite gerenciar usuários e hospedagens de maneira eficiente. Aqui está um guia para você começar a utilizá-la corretamente.
+Bem-vindo! Este projeto é uma API RESTful desenvolvida para gerenciar usuários e hospedagens de forma eficiente. A seguir, você encontrará um guia sobre como utilizá-la.
 
-#### **🛠 Tecnologia usada e dependências do Java**
+### **🛠 Tecnologias utilizadas e as dependências do Java**
 
 - Java 17.0.4
 - Maven 3.9.9
@@ -13,9 +13,10 @@ Bem-vindo ao projeto! Esta API permite gerenciar usuários e hospedagens de mane
   - **H2 Database**
   - **Spring Boot Actuator**
   - **Lombok Project**
+  - **SpringDoc OpenAPI 2.x (para Swagger Ui)**
 - Git/GitHub
 
-#### 💻 H2 Database Modeling
+### 💻 H2 Database Modeling
 
 ```mermaid
 erDiagram
@@ -23,6 +24,7 @@ erDiagram
         Long id
         string name
         string cpf
+        string phoneNumber
         string street
         string number
         string city
@@ -31,13 +33,32 @@ erDiagram
     Hosting {
         Long id
         Long id_user
+        double price
+        string description
+        string street
         string city
         string state
+        string country
         boolean available
     }
 
     User ||--o{ Hosting : "has"
 ```
+
+## 📄 Documentação Swagger
+
+A API conta com documentação interativa via **Swagger UI**, facilitando testes e visualização dos endpoints.
+
+### 🔗 Como Acessar a Documentação
+
+Após iniciar a aplicação, acesse:
+
+🔹 **Swagger UI:** [http://localhost:8080/swagger-ui](http://localhost:8080/swagger-ui)
+
+
+📌 **Exemplo da interface Swagger UI:**
+
+
 
 ### 🔍 Fazendo Requisições (/User)
 
@@ -59,10 +80,11 @@ Após iniciar o projeto, o servidor ficará escutando na root `http://localhost:
   ```json
   {
     "name": "nome",
-    "cpf": "123.456.789-00",
+    "cpf": "000.000.000-00",
     "street": "Rua Exemplo",
-    "number": "123",
+    "number": "00",
     "city": "cidade"
+    "phoneNumber": "(00) 000000-000"
   }
   ```
 
@@ -83,36 +105,91 @@ Após iniciar o projeto, o servidor ficará escutando na root `http://localhost:
 - **Body (JSON):**
   ```json
   {
-    "id_user": 1,
-    "city": "shurima",
-    "state": "RN",
-    "available": false
+  "price": 0.0,
+  "description": "descrição",
+  "street": "rua",
+  "city": "cidade",
+  "state": "estado",
+  "country": "pais",
+  "available": true
   }
   ```
-
+  #
 
 ## 🚀 Como Executar o Projeto
 
-1. Clone o repositório: `git clone <https://github.com/brunopaz8/Hosting-system/tree/main>`
-2. Instale as dependências
-3. Execute o projeto
-4. O servidor estará disponível em: `http://localhost:8080/`
-5. O banco de dados H2 pode ser acessado via console em: `http://localhost:8080/h2-console`
+1️⃣ Clone o repositório:
+
+```sh
+git clone https://github.com/brunopaz8/Hosting-system
+cd Hosting-system
+```
+
+2️⃣ Instale as dependências e compile o projeto:
+
+```sh
+mvn clean install
+```
+
+3️⃣ Inicie o servidor:
+
+```sh
+mvn spring-boot:run
+```
+
+4️⃣ A API estará disponível em:
+
+```
+http://localhost:8080/
+```
+
+5️⃣ Para acessar o **banco de dados H2**, utilize:
+
+```
+http://localhost:8080/h2-console
+```
+6️⃣ Caso queria usar o **swagger**, acesse:
+```
+http://localhost:8080/swagger-ui
+```
 
 ### 💻 Configuração do Banco de Dados H2
 
 - **URL JDBC:** `jdbc:h2:mem:testdb`
 - **Driver:** `org.h2.Driver`
 - **Usuário:** `sa`
-- **Senha:** *(vazia)*
+- **Senha:** *(vazio)*
 - **Dialect:** `org.hibernate.dialect.H2Dialect`
 - **Modo Console:** Habilitado (`/h2-console`)
 
-◼️Para acessar o banco via console H2:
-1. Acesse `http://localhost:8080/h2-console`
+### 📌 Como acessar o console H2:
+
+1. Vá até `http://localhost:8080/h2-console`
 2. No campo *JDBC URL*, insira `jdbc:h2:mem:testdb`
-3. Usuário: `sa`, deixe o campo de senha em branco
-4. Clique em *Connect* para visualizar as tabelas e dados
+3. Usuário: `sa` (sem senha)
+4. Clique em *Connect* para visualizar as tabelas e os dados
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
