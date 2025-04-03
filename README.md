@@ -57,6 +57,7 @@ Após iniciar a aplicação, acesse:
 
 
 📌 **Exemplo da interface Swagger UI:**
+<img src="imgs/swagger_img.png" withd = 500>
 
 
 
