@@ -79,6 +79,10 @@ cd Hosting-system
 ```sh
 docker-compose up --build
 ```
+3️⃣ parando o docker:
+```sh
+docker-compose down
+```
 
 ---
 
