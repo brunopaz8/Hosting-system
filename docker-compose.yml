@@ -24,6 +24,7 @@ services:
     depends_on:
       - postgres
     environment:
+      SPRING_PROFILES_ACTIVE: postgres
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/hosting_database
       SPRING_DATASOURCE_USERNAME: user
       SPRING_DATASOURCE_PASSWORD: 123
