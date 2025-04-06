@@ -4,15 +4,15 @@ Bem-vindo! Este projeto é uma API RESTful desenvolvida para gerenciar usuários
 
 ## 📂 Sumário
 
-- [⚒️ Tecnologias utilizadas](#⚒️-Tecnologias-utilizadas-e-as-dependências-do-Java)
-- [🗄️ Modelagem do Banco de Dados](#💻-database-modeling)
-- [🚀 Como Executar o Projeto](#🚀-como-executar-o-projeto)
-  - [🐳 Executando com Docker](#🐳-executando-com-docker)
-  - [💻 Execução Local (H2)](#💻-execução-local-h2)
-- [🗃️ Configuração do Banco de Dados H2](#🗃️-configuração-do-banco-de-dados-h2)
-- [📗 Documentação Swagger](#📄-documentação-swagger)
-- [🔍 Requisições: User](#🔍-requisições-user)
-- [🔍 Requisições: Hosting](#🔍-requisições-hosting)
+- [⚒️ Tecnologias utilizadas]([#⚒️-Tecnologias-utilizadas-e-as-dependências-do-Java](https://github.com/brunopaz8/Hosting-system/edit/main/README.md#%EF%B8%8F-tecnologias-utilizadas-e-as-depend%C3%AAncias-do-java))
+- [🗄️ Modelagem do Banco de Dados]([#💻-database-modeling](https://github.com/brunopaz8/Hosting-system/edit/main/README.md#%EF%B8%8F-database-modeling))
+- [🚀 Como Executar o Projeto]([#🚀-como-executar-o-projeto](https://github.com/brunopaz8/Hosting-system/edit/main/README.md#-como-executar-o-projeto))
+  - [🐳 Executando com Docker]([#🐳-executando-com-docker](https://github.com/brunopaz8/Hosting-system/edit/main/README.md#-executando-com-docker))
+  - [💻 Execução Local (H2)]([#💻-execução-local-h2](https://github.com/brunopaz8/Hosting-system/edit/main/README.md#-modo-local---h2))
+- [🗃️ Configuração do Banco de Dados H2]([#🗃️-configuração-do-banco-de-dados-h2](https://github.com/brunopaz8/Hosting-system/edit/main/README.md#%EF%B8%8F-configura%C3%A7%C3%A3o-do-banco-de-dados-h2))
+- [📗 Documentação Swagger]([#📄-documentação-swagger](https://github.com/brunopaz8/Hosting-system/edit/main/README.md#-documenta%C3%A7%C3%A3o-swagger))
+- [🔍 Requisições: User]([#🔍-requisições-user](https://github.com/brunopaz8/Hosting-system/edit/main/README.md#-fazendo-requisi%C3%A7%C3%B5es-user))
+- [🔍 Requisições: Hosting]([#🔍-requisições-hosting](https://github.com/brunopaz8/Hosting-system/edit/main/README.md#-fazendo-requisi%C3%A7%C3%B5es-hosting))
 
 ---
 
