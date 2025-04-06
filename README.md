@@ -1,8 +1,22 @@
-# 📚 API RESTful Hosting system com Spring Boot 🍃
+# 📚 API RESTful Hosting system com Spring Boot 🍃 + Docker 🐳
 
-Bem-vindo! Este projeto é uma API RESTful desenvolvida para gerenciar usuários e hospedagens de forma eficiente. A seguir, você encontrará um guia sobre como utilizá-la.
+Bem-vindo! Este projeto é uma API RESTful desenvolvida para gerenciar usuários e hospedagens de forma eficiente, com suporte a containers Docker e banco de dados PostgreSQL. A seguir, você encontrará um guia sobre como utilizá-la.
 
-### **🛠 Tecnologias utilizadas e as dependências do Java**
+## 📂 Sumário
+
+- [⚒️ Tecnologias utilizadas](#🛠-tecnologias-utilizadas)
+- [🗄️ Modelagem do Banco de Dados](#💻-modelagem-do-banco-de-dados)
+- [🚀 Como Executar o Projeto](#🚀-como-executar-o-projeto)
+  - [🐳 Executando com Docker](#🐳-executando-com-docker)
+  - [💻 Execução Local (H2)](#💻-execução-local-h2)
+- [🗃️ Configuração do Banco de Dados H2](#🗃️-configuração-do-banco-de-dados-h2)
+- [📗 Documentação Swagger](#📄-documentação-swagger)
+- [🔍 Requisições: User](#🔍-requisições-user)
+- [🔍 Requisições: Hosting](#🔍-requisições-hosting)
+
+---
+
+### **⚒️ Tecnologias utilizadas e as dependências do Java**
 
 - Java 17.0.4
 - Maven 3.9.9
@@ -15,8 +29,10 @@ Bem-vindo! Este projeto é uma API RESTful desenvolvida para gerenciar usuários
   - **Lombok Project**
   - **SpringDoc OpenAPI 2.x (para Swagger Ui)**
 - Git/GitHub
+- Docker & Docker Compose
+---
 
-### 💻 H2 Database Modeling
+### 🗄️ Database Modeling
 
 ```mermaid
 erDiagram
@@ -44,26 +60,84 @@ erDiagram
 
     User ||--o{ Hosting : "has"
 ```
+## 🚀 Como Executar o Projeto
 
-## 📄 Documentação Swagger
+### 🐳 Executando com Docker
+O projeto pode ser executado com **Docker** e utiliza o **PostgreSQL** como banco de dados persistente.
 
+### 🔧 Pré-requisitos
+- Docker
+- Docker Compose
+
+#### ▶️ Subindo a aplicação com Docker
+1️⃣ Clone o repositório:
+```sh
+git clone https://github.com/brunopaz8/Hosting-system
+cd Hosting-system
+```
+2️⃣ No terminal, execute:
+```sh
+docker-compose up --build
+```
+
+---
+
+## 💻 modo local - H2
+1️⃣ Clone o repositório:
+```sh
+git clone https://github.com/brunopaz8/Hosting-system
+cd Hosting-system
+```
+
+2️⃣ Instale as dependências e compile o projeto:
+```sh
+mvn clean install
+```
+3️⃣ Inicie o servidor:
+```sh
+mvn spring-boot:run
+```
+4️⃣ A API estará disponível em:
+```
+http://localhost:8080/
+```
+5️⃣ Caso queria usar o **swagger**, acesse:
+```
+http://localhost:8080/swagger-ui
+```
+---
+
+## 🗃️ Configuração do Banco de Dados H2
+
+- **URL JDBC:** `jdbc:h2:mem:testdb`
+- **Driver:** `org.h2.Driver`
+- **Usuário:** `sa`
+- **Senha:** *(vazio)*
+- **Dialect:** `org.hibernate.dialect.H2Dialect`
+
+### Como acessar:
+
+1. Acesse `http://localhost:8080/h2-console`
+2. JDBC URL: `jdbc:h2:mem:testdb`
+3. Usuário: `sa`
+4. Clique em *Connect*
+
+---
+
+## 📗 Documentação Swagger
 A API conta com documentação interativa via **Swagger UI**, facilitando testes e visualização dos endpoints.
 
 ### 🔗 Como Acessar a Documentação
-
 Após iniciar a aplicação, acesse:
 
 🔹 **Swagger UI:** [http://localhost:8080/swagger-ui](http://localhost:8080/swagger-ui)
 
-
 📌 **Exemplo da interface Swagger UI:**
 <img src="imgs/swagger_img.png" withd = 500>
 
-
+---
 
 ### 🔍 Fazendo Requisições (/User)
-
-Após iniciar o projeto, o servidor ficará escutando na root `http://localhost:8080/`.
 
 #### 🟣 Gerenciamento do User
 
@@ -88,6 +162,7 @@ Após iniciar o projeto, o servidor ficará escutando na root `http://localhost:
     "phoneNumber": "(00) 000000-000"
   }
   ```
+---
 
 ### 🔍 Fazendo Requisições (/hosting)
 
@@ -115,84 +190,3 @@ Após iniciar o projeto, o servidor ficará escutando na root `http://localhost:
   "available": true
   }
   ```
-  #
-
-## 🚀 Como Executar o Projeto
-
-1️⃣ Clone o repositório:
-
-```sh
-git clone https://github.com/brunopaz8/Hosting-system
-cd Hosting-system
-```
-
-2️⃣ Instale as dependências e compile o projeto:
-
-```sh
-mvn clean install
-```
-
-3️⃣ Inicie o servidor:
-
-```sh
-mvn spring-boot:run
-```
-
-4️⃣ A API estará disponível em:
-
-```
-http://localhost:8080/
-```
-
-5️⃣ Para acessar o **banco de dados H2**, utilize:
-
-```
-http://localhost:8080/h2-console
-```
-6️⃣ Caso queria usar o **swagger**, acesse:
-```
-http://localhost:8080/swagger-ui
-```
-
-### 💻 Configuração do Banco de Dados H2
-
-- **URL JDBC:** `jdbc:h2:mem:testdb`
-- **Driver:** `org.h2.Driver`
-- **Usuário:** `sa`
-- **Senha:** *(vazio)*
-- **Dialect:** `org.hibernate.dialect.H2Dialect`
-- **Modo Console:** Habilitado (`/h2-console`)
-
-### 📌 Como acessar o console H2:
-
-1. Vá até `http://localhost:8080/h2-console`
-2. No campo *JDBC URL*, insira `jdbc:h2:mem:testdb`
-3. Usuário: `sa` (sem senha)
-4. Clique em *Connect* para visualizar as tabelas e os dados
-
----
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
