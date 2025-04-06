@@ -4,8 +4,8 @@ Bem-vindo! Este projeto é uma API RESTful desenvolvida para gerenciar usuários
 
 ## 📂 Sumário
 
-- [⚒️ Tecnologias utilizadas](#🛠-tecnologias-utilizadas)
-- [🗄️ Modelagem do Banco de Dados](#💻-modelagem-do-banco-de-dados)
+- [⚒️ Tecnologias utilizadas](#⚒️-Tecnologias-utilizadas-e-as-dependências-do-Java)
+- [🗄️ Modelagem do Banco de Dados](#💻-database-modeling)
 - [🚀 Como Executar o Projeto](#🚀-como-executar-o-projeto)
   - [🐳 Executando com Docker](#🐳-executando-com-docker)
   - [💻 Execução Local (H2)](#💻-execução-local-h2)
