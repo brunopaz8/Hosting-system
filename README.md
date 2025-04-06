@@ -60,6 +60,9 @@ erDiagram
 
     User ||--o{ Hosting : "has"
 ```
+
+---
+
 ## 🚀 Como Executar o Projeto
 
 ### 🐳 Executando com Docker
@@ -69,7 +72,6 @@ O projeto pode ser executado com **Docker** e utiliza o **PostgreSQL** como banc
 - Docker
 - Docker Compose
 
-#### ▶️ Subindo a aplicação com Docker
 1️⃣ Clone o repositório:
 ```sh
 git clone https://github.com/brunopaz8/Hosting-system
@@ -79,7 +81,7 @@ cd Hosting-system
 ```sh
 docker-compose up --build
 ```
-3️⃣ parando o docker:
+3️⃣ (opcional) Parando o docker:
 ```sh
 docker-compose down
 ```
