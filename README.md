@@ -136,7 +136,7 @@ A API conta com documentação interativa via **Swagger UI**, facilitando testes
 ### 🔗 Como Acessar a Documentação
 Após iniciar a aplicação, acesse:
 
-🔹 **Swagger UI:** [http://localhost:8080/swagger-ui](http://localhost:8080/swagger-ui)
+🟣 **Swagger UI:** [http://localhost:8080/swagger-ui](http://localhost:8080/swagger-ui)
 
 📌 **Exemplo da interface Swagger UI:**
 <img src="imgs/swagger_img.png" withd = 500>
