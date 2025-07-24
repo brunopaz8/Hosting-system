@@ -2,21 +2,25 @@
 
 Bem-vindo! Este projeto é uma API RESTful desenvolvida para gerenciar usuários e hospedagens de forma eficiente, com suporte a containers Docker e banco de dados PostgreSQL. A seguir, você encontrará um guia sobre como utilizá-la.
 
+---
+
 ## 📂 Sumário
 
-- [⚒️ Tecnologias utilizadas]([#⚒️-Tecnologias-utilizadas-e-as-dependências-do-Java](https://github.com/brunopaz8/Hosting-system/edit/main/README.md#%EF%B8%8F-tecnologias-utilizadas-e-as-depend%C3%AAncias-do-java))
-- [🗄️ Modelagem do Banco de Dados]([#💻-database-modeling](https://github.com/brunopaz8/Hosting-system/edit/main/README.md#%EF%B8%8F-database-modeling))
-- [🚀 Como Executar o Projeto]([#🚀-como-executar-o-projeto](https://github.com/brunopaz8/Hosting-system/edit/main/README.md#-como-executar-o-projeto))
-  - [🐳 Executando com Docker]([#🐳-executando-com-docker](https://github.com/brunopaz8/Hosting-system/edit/main/README.md#-executando-com-docker))
-  - [💻 Execução Local (H2)]([#💻-execução-local-h2](https://github.com/brunopaz8/Hosting-system/edit/main/README.md#-modo-local---h2))
-- [🗃️ Configuração do Banco de Dados H2]([#🗃️-configuração-do-banco-de-dados-h2](https://github.com/brunopaz8/Hosting-system/edit/main/README.md#%EF%B8%8F-configura%C3%A7%C3%A3o-do-banco-de-dados-h2))
-- [📗 Documentação Swagger]([#📄-documentação-swagger](https://github.com/brunopaz8/Hosting-system/edit/main/README.md#-documenta%C3%A7%C3%A3o-swagger))
-- [🔍 Requisições: User]([#🔍-requisições-user](https://github.com/brunopaz8/Hosting-system/edit/main/README.md#-fazendo-requisi%C3%A7%C3%B5es-user))
-- [🔍 Requisições: Hosting]([#🔍-requisições-hosting](https://github.com/brunopaz8/Hosting-system/edit/main/README.md#-fazendo-requisi%C3%A7%C3%B5es-hosting))
+- ⚒️ Tecnologias utilizadas
+- 🔧 Funcionalidades
+- 🗄️ Modelagem do Banco de Dados
+- 🗃️ Configuração do Banco de Dados H2
+- 🔍 Requisições:
+   - **User**
+   - **Hosting**
+- 🚀 Como Executar o Projeto:
+  - **🐳 Executando com Docker**
+  - **💻 Execução Local (H2)**
+  - **📗 Documentação Swagger**
 
 ---
 
-### **⚒️ Tecnologias utilizadas e as dependências do Java**
+## **⚒️ Tecnologias utilizadas e as dependências do Java**
 
 - Java 17.0.4
 - Maven 3.9.9
@@ -30,9 +34,27 @@ Bem-vindo! Este projeto é uma API RESTful desenvolvida para gerenciar usuários
   - **SpringDoc OpenAPI 2.x (para Swagger Ui)**
 - Git/GitHub
 - Docker & Docker Compose
+  
 ---
 
-### 🗄️ Database Modeling
+## 🔧 Funcionalidades
+
+- User
+   - **Criar** um novo user
+   - **Buscar** todos os users
+   - **Bucar** por id
+   - **Atualizar** um user existente
+   - **Deletar** um user
+- Host
+   - **Criar** um novo host
+   - **Buscar** todos os hosts
+   - **Bucar** por id
+   - **Atualiza**r um host existente
+   - **Deletar** um host
+
+---
+
+## 🗄️ Database Modeling
 
 ```mermaid
 erDiagram
@@ -63,56 +85,6 @@ erDiagram
 
 ---
 
-## 🚀 Como Executar o Projeto
-
-### 🐳 Executando com Docker
-O projeto pode ser executado com **Docker** e utiliza o **PostgreSQL** como banco de dados persistente.
-
-### 🔧 Pré-requisitos
-- Docker
-- Docker Compose
-
-1️⃣ Clone o repositório:
-```sh
-git clone https://github.com/brunopaz8/Hosting-system
-cd Hosting-system
-```
-2️⃣ No terminal, execute:
-```sh
-docker-compose up --build
-```
-3️⃣ (opcional) Parando o docker:
-```sh
-docker-compose down
-```
-
----
-
-## 💻 modo local - H2
-1️⃣ Clone o repositório:
-```sh
-git clone https://github.com/brunopaz8/Hosting-system
-cd Hosting-system
-```
-
-2️⃣ Instale as dependências e compile o projeto:
-```sh
-mvn clean install
-```
-3️⃣ Inicie o servidor:
-```sh
-mvn spring-boot:run
-```
-4️⃣ A API estará disponível em:
-```
-http://localhost:8080/
-```
-5️⃣ Caso queria usar o **swagger**, acesse:
-```
-http://localhost:8080/swagger-ui
-```
----
-
 ## 🗃️ Configuração do Banco de Dados H2
 
 - **URL JDBC:** `jdbc:h2:mem:testdb`
@@ -130,32 +102,19 @@ http://localhost:8080/swagger-ui
 
 ---
 
-## 📗 Documentação Swagger
-A API conta com documentação interativa via **Swagger UI**, facilitando testes e visualização dos endpoints.
+## 🔍 Fazendo Requisições (/User)
 
-### 🔗 Como Acessar a Documentação
-Após iniciar a aplicação, acesse:
+###  👤 Gerenciamento do User
 
-🟣 **Swagger UI:** [http://localhost:8080/swagger-ui](http://localhost:8080/swagger-ui)
+| Method | Parameters | Action                                |
+| ------ | ---------- | ------------------------------------- |
+|🟢 POST   | /          | Cria um User                        |
+|🟠 PUT    | /{id}      | Atualiza o User do id selecionado   |
+|🔵 GET    | /          | Retorna uma lista de todos os Users |
+|🔵 GET    | /{id}      | Retorna o User específico do id     |
+|🔴 DELETE | /{id}      | Deleta o User do id selecionado     |
 
-📌 **Exemplo da interface Swagger UI:**
-<img src="imgs/swagger_img.png" withd = 500>
-
----
-
-### 🔍 Fazendo Requisições (/User)
-
-#### 🟣 Gerenciamento do User
-
-| Method | Parameters | Action                              |
-| ------ | ---------- | ----------------------------------- |
-| POST   | /          | Cria um User                        |
-| PUT    | /{id}      | Atualiza o User do id selecionado   |
-| GET    | /          | Retorna uma lista de todos os Users |
-| GET    | /{id}      | Retorna o User específico do id     |
-| DELETE | /{id}      | Deleta o User do id selecionado     |
-
-#### 🟣 Criando um User
+#### 🟢 Criando um User
 
 - **Body (JSON):**
   ```json
@@ -168,21 +127,22 @@ Após iniciar a aplicação, acesse:
     "phoneNumber": "(00) 000000-000"
   }
   ```
+  
 ---
 
-### 🔍 Fazendo Requisições (/hosting)
+## 🔍 Fazendo Requisições (/hosting)
 
-#### 🟣 Gerenciamento do Hosting
+### 🏨 Gerenciamento do Hosting
 
-| Method | Parameters | Action                                 |
-| ------ | ---------- | -------------------------------------- |
-| POST   | /          | Cria um Hosting                        |
-| PUT    | /{id}      | Atualiza o Hosting do id selecionado   |
-| GET    | /          | Retorna uma lista de todos os Hostings |
-| GET    | /{id}      | Retorna o Hosting específico do id     |
-| DELETE | /{id}      | Deleta o Hosting do id selecionado     |
+| Method | Parameters | Action                                   |  
+| ------ | ---------- | ---------------------------------------- |
+|🟢 POST   | /          | Cria um Hosting                        |
+|🟠 PUT    | /{id}      | Atualiza o Hosting do id selecionado   |
+|🔵 GET    | /          | Retorna uma lista de todos os Hostings |
+|🔵 GET    | /{id}      | Retorna o Hosting específico do id     |
+|🔴 DELETE | /{id}      | Deleta o Hosting do id selecionado     |
 
-#### 🟣 Criando um Hosting
+#### 🟢 Criando um Hosting
 
 - **Body (JSON):**
   ```json
@@ -196,3 +156,78 @@ Após iniciar a aplicação, acesse:
   "available": true
   }
   ```
+  
+---
+
+## 🚀 Como Executar o Projeto:
+
+### 🐳 Executando com Docker
+O projeto pode ser executado com **Docker** e utiliza o **PostgreSQL** como banco de dados persistente.
+
+#### 🔧 Pré-requisitos
+
+- Docker
+- Docker Compose
+  
+1️⃣ Clone o repositório:
+
+```sh
+git clone https://github.com/brunopaz8/Hosting-system
+cd Hosting-system
+```
+
+2️⃣ No terminal, execute:
+
+```sh
+docker-compose up --build
+```
+
+3️⃣ (opcional) Parando o docker:
+
+```sh
+docker-compose down
+```
+
+---
+
+### 💻 modo local - H2
+1️⃣ Clone o repositório:
+
+```sh
+git clone https://github.com/brunopaz8/Hosting-system
+cd Hosting-system
+```
+
+2️⃣ Instale as dependências e compile o projeto:
+
+```sh
+mvn clean install
+```
+
+3️⃣ Inicie o servidor:
+
+```sh
+mvn spring-boot:run
+```
+
+4️⃣ A API estará disponível em:
+
+```
+http://localhost:8080/
+```
+
+5️⃣ Caso queria usar o **swagger**, acesse:
+
+```
+http://localhost:8080/swagger-ui
+```
+
+---
+
+### 📗 Documentação Swagger
+A API conta com documentação interativa via **Swagger UI**, facilitando testes e visualização dos endpoints. Após iniciar a aplicação, acesse:
+
+🟢 **Swagger UI:** [http://localhost:8080/swagger-ui](http://localhost:8080/swagger-ui)
+
+📌 **Exemplo da interface Swagger UI:**
+<img src="imgs/swagger_img.png" withd = 500>
