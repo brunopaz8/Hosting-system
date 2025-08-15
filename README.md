@@ -11,11 +11,9 @@ Bem-vindo! Este projeto é uma API RESTful desenvolvida para gerenciar usuários
 * [🗄️ Modelagem do Banco de Dados](#️-database-modeling)
 * [🗃️ Configuração do Banco de Dados H2](#️-configuração-do-banco-de-dados-h2)
 * [🔍 Requisições](#-fazendo-requisições-user)
-
   * [👤 User](#-gerenciamento-do-user)
   * [🏨 Hosting](#-gerenciamento-do-hosting)
 * [🚀 Como Executar o Projeto](#-como-executar-o-projeto)
-
   * [🐳 Executando com Docker](#-executando-com-docker)
   * [💻 Execução Local (H2)](#-modo-local---h2)
   * [📗 Documentação Swagger](#-documentação-swagger)
