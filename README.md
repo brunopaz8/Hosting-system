@@ -6,17 +6,20 @@ Bem-vindo! Este projeto é uma API RESTful desenvolvida para gerenciar usuários
 
 ## 📂 Sumário
 
-- ⚒️ Tecnologias utilizadas
-- 🔧 Funcionalidades
-- 🗄️ Modelagem do Banco de Dados
-- 🗃️ Configuração do Banco de Dados H2
-- 🔍 Requisições:
-   - **User**
-   - **Hosting**
-- 🚀 Como Executar o Projeto:
-  - **🐳 Executando com Docker**
-  - **💻 Execução Local (H2)**
-  - **📗 Documentação Swagger**
+* [⚒️ Tecnologias utilizadas](#️-tecnologias-utilizadas-e-as-dependências-do-java)
+* [🔧 Funcionalidades](#-funcionalidades)
+* [🗄️ Modelagem do Banco de Dados](#️-database-modeling)
+* [🗃️ Configuração do Banco de Dados H2](#️-configuração-do-banco-de-dados-h2)
+* [🔍 Requisições](#-fazendo-requisições-user)
+
+  * [👤 User](#-gerenciamento-do-user)
+  * [🏨 Hosting](#-gerenciamento-do-hosting)
+* [🚀 Como Executar o Projeto](#-como-executar-o-projeto)
+
+  * [🐳 Executando com Docker](#-executando-com-docker)
+  * [💻 Execução Local (H2)](#-modo-local---h2)
+  * [📗 Documentação Swagger](#-documentação-swagger)
+
 
 ---
 
